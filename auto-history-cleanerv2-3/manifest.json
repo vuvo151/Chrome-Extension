@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "CleanBrowse - Auto History Cleaner",
+  "version": "2.3",
+  "description": "Automatically deletes browsing history for selected domains at regular intervals.",
+  "author": "NVV",
+  "permissions": [
+    "history",
+    "alarms",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "100": "images/icon100.png"
+    }
+  },
+  "icons": {
+    "100": "images/icon100.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["default_list.txt"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

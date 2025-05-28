@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CleanBrowse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      width: 250px;
+      position: relative;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    #settingsBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .icon-buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    .icon-buttons img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .domain-box {
+      background: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      height: 140px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .domain-box:focus {
+      outline: none;
+      border-color: #007bff;
+      background: #fff;
+    }
+
+    .domain-new {
+      background-color: #ffffcc;
+    }
+
+    .interval-container {
+      margin-top: 10px;
+    }
+
+    .interval-container label {
+      font-size: 13px;
+    }
+
+    .interval-container input[type="range"] {
+      width: 100%;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .button-row button {
+      flex: 1;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    #statusMessage {
+      color: green;
+      font-size: 0.9em;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/icon100.png" alt="CleanBrowse Logo" class="logo" width="100" height="100">
+  <img src="images/settings.png" id="settingsBtn" alt="Settings">
+
+  <h3>Target Domains</h3>
+  <div id="domainBox" class="domain-box" contenteditable="true" spellcheck="false"></div>
+
+  <div class="icon-buttons">
+    <img src="images/import.png" id="importIcon" title="Import Domains" />
+    <img src="images/export.png" id="exportIcon" title="Export Domains" />
+    <input type="file" id="importFile" accept=".txt" />
+  </div>
+
+  <div class="interval-container">
+    <label for="intervalSlider">Clean interval: <span id="intervalValue">20</span> min</label>
+    <input type="range" id="intervalSlider" min="3" max="25" step="1" value="20" />
+  </div>
+
+  <div class="button-row">
+    <button id="saveBtn">Save</button>
+    <button id="cleanNowBtn">Clean Now</button>
+  </div>
+
+  <div id="statusMessage"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
